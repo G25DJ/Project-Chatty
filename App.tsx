@@ -52,7 +52,7 @@ const DEFAULT_PREFS: UserPreferences = {
   personality: 'friendly',
   layout: 'right',
   voiceId: VOICES[0].id,
-  assistantName: 'Nova'
+  assistantName: 'Project Chatty'
 };
 
 const App: React.FC = () => {
@@ -475,6 +475,7 @@ const App: React.FC = () => {
                       <label className="text-[10px] font-black text-gray-600 uppercase tracking-widest">Neural Persona</label>
                       <div className="grid grid-cols-2 gap-3">
                          {(Object.keys(PERSONALITIES) as PersonalityType[]).map(p => (
+                           // Corrected setPrefs to spread previous state 'pr' instead of iteration key 'p'
                            <button key={p} onClick={() => setPrefs(pr => ({ ...pr, personality: p }))} className={`py-4 rounded-xl border-2 transition-all font-black text-[9px] uppercase tracking-widest ${prefs.personality === p ? `bg-blue-500/10 border-blue-500` : 'border-white/5 text-gray-700'}`}>{p}</button>
                          ))}
                       </div>
